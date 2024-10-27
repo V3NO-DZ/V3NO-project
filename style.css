@@ -1,0 +1,208 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Raleway", sans-serif;
+}
+
+body {
+    background-color: #0c0e2f; /* Dark blue background */
+    background-image: url('./images/bg-desktop.png'); /* Add your background image here */
+    background-repeat: no-repeat;
+    background-position: bottom center; /* Ensure it stays at the bottom */
+    background-size: 100% 50%; /* The image takes the bottom half of the screen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 800px;
+}
+
+.card-left {
+    background-color: #1c1f4a; /* Dark card color */
+    padding: 20px;
+    border-top-right-radius:50px;
+    color: white;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.card-right {
+    background-color: #1c1f4a;
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+    width: 500px;
+    position: relative;
+}
+
+.logo h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    background-color:  #1c1f4a;
+
+}
+
+.icon {
+    width: auto;
+    height: auto;
+    background-color: darkblue;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+
+}
+
+.file {
+    background-image: url('file-icon.png');
+    background-size: cover;
+}
+
+.folder {
+    background-image: url('folder-icon.png');
+    background-size: cover;
+}
+
+.upload {
+    background-image: url('upload-icon.png');
+    background-size: cover;
+}
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+.card-right::before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid white;
+    position: absolute;
+    right: -3px;
+    top: 0;
+    transform: rotate(45deg);
+
+}
+
+.progress-info p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.bubble {
+    position: absolute;
+    top: -30px;
+    right: 10px;
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.bubble span {
+    font-size: 12px;
+    margin-left: 5px;
+    color: #6c6c6c;
+}
+
+.circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: white;
+    margin-right: 5px;
+    right: 0;
+
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    
+
+}
+
+
+
+}
+  /* Center container */
+  .progress-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 12vh;
+    background-color:#1c1f4a ;
+  }
+
+  /* Outer bar */
+/* Container for the progress bar */
+.progress-bar {
+    position: relative;
+    width: 467px;
+    height: 26px;
+    background-color: #1E1A47;
+    border-radius: 25px;
+    padding: 5px;
+  }
+  
+  /* Purple gradient progress */
+/* Animate the progress bar fill */
+.progress {
+    width: 0%; /* Initial width set to 0 */
+    position: relative;
+    height: 100%;
+    background: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+    border-radius: 25px;
+    animation: loadProgress 3s forwards ease-in-out; /* Attach animation */
+}
+
+/* Animate the handle movement */
+.handle {
+    position: absolute;
+    right: 7px;
+    top: -27% ;
+    transform: translateY(-50%);
+    width: 26px;
+    height: 26px;
+    background-color: white;
+    border-radius: 50%;
+    animation: moveHandle 3s forwards ease-in-out; /* Attach animation */
+}
+
+  
+
+  /* Animation for the progress bar fill */
+  @keyframes loadProgress {
+    from { width: 0; }
+    to { width: 85%; } /* Change this to set desired progress */
+  }
+
+  /* Animation for the circle handle */
+  @keyframes moveHandle {
+    from { transform: translateX(0); -webkit-transform: translateX(0); -moz-transform: translateX(0); -ms-transform: translateX(0); -o-transform: translateX(0); }
+    to { transform: translateX(75%); -webkit-transform: translateX(75%); -moz-transform: translateX(75%); -ms-transform: translateX(75%); -o-transform: translateX(75%); } /* Adjust based on 75% width */
+  }
