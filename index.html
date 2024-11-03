@@ -2,59 +2,73 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Displays site based on device's screen size -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="./style.css">
   
-  <title>Frontend Mentor | Fylo data storage component</title>
+  <title>Frontend Mentor | Fylo Data Storage Component</title>
 
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    /* Attribution styling */
+    .attribution { 
+      font-size: 11px; 
+      text-align: center; 
+    }
+    .attribution a { 
+      color: hsl(228, 45%, 44%); 
+    }
   </style>
 </head>
 <body>
 
-  
-    <div class="container">
-        <div class="card-left">
-            <div class="logo">
-              <img src="./images/logo.svg" alt="Fylo Logo" />
-            </div>
-            <div class="icons">
-                <div class="icon file">
-                  <img src="./images/icon-document.svg" alt="SVG Image" />
-                </div>
-                <div class="icon folder">
-                  <img src="./images/icon-folder.svg" alt="SVG Image" />
-                </div>
-                <div class="icon upload">
-                  <img src="./images/icon-upload.svg" alt="SVG Image" />
-                </div>
-            </div>
-        </div>
+  <!-- Container holding left and right cards -->
+  <div class="container">
+      
+      <!-- Left card with logo and icons -->
+      <div class="card-left">
+          <div class="logo">
+            <img src="./images/logo.svg" alt="Fylo Logo" />
+          </div>
+          <div class="icons">
+              <div class="icon file">
+                <img src="./images/icon-document.svg" alt="Document icon" />
+              </div>
+              <div class="icon folder">
+                <img src="./images/icon-folder.svg" alt="Folder icon" />
+              </div>
+              <div class="icon upload">
+                <img src="./images/icon-upload.svg" alt="Upload icon" />
+              </div>
+          </div>
+      </div>
 
-        <div class="card-right">
-            <div class="progress-info">
-                <p>You've used <strong>815 GB</strong> of your storage</p>
-                <div class="progress-container">
-                  <div class="progress-bar">
-                    <div class="progress">
-                      <div class="handle"></div>
-                    </div>
-                  </div>
+      <!-- Right card with progress info and bubble -->
+      <div class="card-right">
+          <div class="progress-info">
+              <p class="p">You've used <strong>815 GB</strong> of your storage</p>
+              
+              <!-- Progress bar and container -->
+              <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress bar-1"></div>
+                    <div class="progress-number num-1"></div>
                 </div>
-                <div class="progress-label">
-                    <span>0 GB</span>
-                    <span>1000 GB</span>
-                </div>
-            </div>
-            <div class="bubble">
-                <p>185 <span>GB LEFT</span></p>
-            </div>
-        </div>
-    </div>
+              </div>
+
+              <!-- Labels for progress bar -->
+              <div class="progress-label">
+                  <span>0 GB</span>
+                  <span>1000 GB</span>
+              </div>
+          </div>
+
+          <!-- Storage left bubble -->
+          <div class="bubble">
+              <p>185 <span>GB LEFT</span></p>
+          </div>
+      </div>
+  </div>
 
 </body>
 </html>

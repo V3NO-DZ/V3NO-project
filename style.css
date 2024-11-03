@@ -1,22 +1,23 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
     font-family: "Raleway", sans-serif;
 }
 
 body {
     background-color: #0c0e2f; /* Dark blue background */
-    background-image: url('./images/bg-desktop.png'); /* Add your background image here */
+    background-image: url('./images/bg-desktop.png'); /* Desktop background image */
     background-repeat: no-repeat;
-    background-position: bottom center; /* Ensure it stays at the bottom */
-    background-size: 100% 50%; /* The image takes the bottom half of the screen */
+    background-position: bottom center;
+    background-size: 100% 50%; /* Bottom half background for desktop */
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    aspect-ratio: 16/10;
+    gap: 50px; 
 }
 
 .container {
@@ -27,22 +28,26 @@ body {
 }
 
 .card-left {
-    background-color: #1c1f4a; /* Dark card color */
+    background-color: #1c1f4a;
     padding: 20px;
-    border-top-right-radius:50px;
+    border-top-right-radius: 50px;
     color: white;
     width: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .card-right {
     background-color: #1c1f4a;
     padding: 20px;
     border-radius: 15px;
     color: white;
     width: 500px;
+    height: 170px;
+    display: flex;
     position: relative;
+    align-items: center;
 }
 
 .logo h2 {
@@ -54,19 +59,17 @@ body {
     display: flex;
     gap: 10px;
     margin-top: 20px;
-    background-color:  #1c1f4a;
-
+    background-color: #1c1f4a;
 }
 
 .icon {
     width: auto;
     height: auto;
-    background-color: darkblue;
+    background-color: rgb(0, 0, 22);
     border-radius: 8px;
     justify-content: center;
     align-items: center;
     padding: 10px;
-
 }
 
 .file {
@@ -83,15 +86,18 @@ body {
     background-image: url('upload-icon.png');
     background-size: cover;
 }
+
 .progress-label {
     display: flex;
     justify-content: space-between;
     font-size: 14px;
+    margin-top: 6px ;
 }
+
 .card-right::before {
     content: "";
-    width: 0px;
-    height: 0px;
+    width: 0;
+    height: 0;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
     border-bottom: 20px solid white;
@@ -99,13 +105,94 @@ body {
     right: -3px;
     top: 0;
     transform: rotate(45deg);
-
+}
+.p {
+    position: absolute;
+    left: 52%;
+    transform: translate(-50%, -50%);;
+    color: white;
 }
 
 .progress-info p {
     font-size: 16px;
     margin-bottom: 10px;
+    position: relative;
 }
+
+
+.progress-container {
+    display: flex;
+    height: auto;
+    width: auto;
+}
+.progress-bar {
+    position: relative;
+    width: 450px;
+    height: 15px;
+    background: gray;;
+    border-radius: 35px;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    -ms-border-radius: 35px;
+    -o-border-radius: 35px;
+}
+.progress {
+    background: #ff0080 ;
+    border-radius: 35px;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    -ms-border-radius: 35px;
+    -o-border-radius: 35px;
+}
+.progress-number {
+    position: absolute;
+    width: 16px;
+    height:  16px;
+    background: white;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.bar-1 {
+    width: 85%;
+    height: 100%;
+    animation: bar-1 2s ease-in-out;
+    -webkit-animation: bar-1 2s ease-in-out;
+}
+.num-1{
+    top: -1.5px;
+    left: calc(85% - 25px);
+    animation: num-1 2s ease-in-out;
+    -webkit-animation: num-1 2s ease-in-out;
+    margin-left: 11px;
+}
+@keyframes bar-1
+{
+    0% 
+    {
+        width: 0%;
+    }
+    100% 
+    {
+        width: 85%;
+    }
+}
+@keyframes num-1 
+{0%
+    {
+        left: -25px;
+    }
+    100%
+    {
+        left: calc(85% - 25px);
+    }
+    
+}
+
+
+
 
 .bubble {
     position: absolute;
@@ -127,82 +214,88 @@ body {
     color: #6c6c6c;
 }
 
-.circle {
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background-color: white;
-    margin-right: 5px;
-    right: 0;
 
-}
-
-@media screen and (max-width: 768px) {
+ @media screen and (max-width: 375px) {
     .container {
         flex-direction: column;
         align-items: center;
         width: 100%;
+        padding: 20px;
+        margin-bottom: 20px; /* Vertical spacing for mobile */
+        gap: 30px;
+    }
     
+    /* Adjust body background image for mobile */
+    body {
+        background-image: url('./images/bg-mobile.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center ;
+        width: 100%;
+        height: 100vh; 
+    }
 
+    .card-right, .card-left {
+        width: 100%;
+    }
+
+    .progress-container {
+        display: flex;
+        height: auto;
+        width: auto;
+    }
+
+    .progress-bar {
+        position: relative;
+        width: 250px;
+        height: 10px;
+        background: gray;
+        border-radius: 35px;
+        overflow: hidden; /* Ensures smooth animation */
+    }
+
+    .progress {
+        background: #ff0080;
+        border-radius: 35px;
+    }
+
+    .progress-number {
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        background: white;
+        border-radius: 50%;
+        z-index: 1;
+    }
+
+    .bar-1 {
+        width: 85%;
+        height: 100%;
+        animation: bar-1 2s ease-in-out;
+    }
+
+    .num-1 {
+        top: -1.5px;
+        left: calc(85% - 25px);
+        animation: num-1 2s ease-in-out;
+        margin-left: 11px;
+    }
+
+    @keyframes bar-1 {
+        0% {
+            width: 0%;
+        }
+        100% {
+            width: 85%;
+        }
+    }
+
+    @keyframes num-1 {
+        0% {
+            left: -25px;
+        }
+        100% {
+            left: calc(85% - 25px);
+        }
+    }
 }
-
-
-
-}
-  /* Center container */
-  .progress-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 12vh;
-    background-color:#1c1f4a ;
-  }
-
-  /* Outer bar */
-/* Container for the progress bar */
-.progress-bar {
-    position: relative;
-    width: 467px;
-    height: 26px;
-    background-color: #1E1A47;
-    border-radius: 25px;
-    padding: 5px;
-  }
-  
-  /* Purple gradient progress */
-/* Animate the progress bar fill */
-.progress {
-    width: 0%; /* Initial width set to 0 */
-    position: relative;
-    height: 100%;
-    background: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
-    border-radius: 25px;
-    animation: loadProgress 3s forwards ease-in-out; /* Attach animation */
-}
-
-/* Animate the handle movement */
-.handle {
-    position: absolute;
-    right: 7px;
-    top: -27% ;
-    transform: translateY(-50%);
-    width: 26px;
-    height: 26px;
-    background-color: white;
-    border-radius: 50%;
-    animation: moveHandle 3s forwards ease-in-out; /* Attach animation */
-}
-
-  
-
-  /* Animation for the progress bar fill */
-  @keyframes loadProgress {
-    from { width: 0; }
-    to { width: 85%; } /* Change this to set desired progress */
-  }
-
-  /* Animation for the circle handle */
-  @keyframes moveHandle {
-    from { transform: translateX(0); -webkit-transform: translateX(0); -moz-transform: translateX(0); -ms-transform: translateX(0); -o-transform: translateX(0); }
-    to { transform: translateX(75%); -webkit-transform: translateX(75%); -moz-transform: translateX(75%); -ms-transform: translateX(75%); -o-transform: translateX(75%); } /* Adjust based on 75% width */
-  }
